@@ -19,14 +19,14 @@ public class StudentController {
         this.service = studentService;
     }
 
-    @GetMapping("/")
+//    @GetMapping("/")
     @ResponseBody
     public String home() {
         return "This is Student Management Project";
     }
 
     //     Handler methods to handle request like, :Student List, return mode and view also.
-    @GetMapping("/students")
+    @GetMapping("/")
     public String StudentsList(Model model) {
         model.addAttribute("students", service.getAllStudents());
         return "index";
@@ -46,7 +46,7 @@ public class StudentController {
     @PostMapping("/students")
     public String saveStudents(@ModelAttribute("student") Student student) {
         service.saveStudent(student);
-        return "redirect:/students";
+        return "redirect:/";
     }
 
     //     Handler Methods for updating Students :
@@ -56,7 +56,7 @@ public class StudentController {
         return "edit_Students";
     }
 
-    @PostMapping("/students/{id}")
+    @PostMapping("/{id}")
     public String updateStudent(@PathVariable Long id, @ModelAttribute("student") Student student, Model model) {
 //        get Students from database by id :
         Student existingStudent = service.getStudentById(id);
@@ -68,7 +68,7 @@ public class StudentController {
 
 //        save updated student object :
         service.updateStudent(existingStudent);
-        return "redirect:/students";
+        return "redirect:/";
     }
 
 //    Handler Methods for deleting Students :
@@ -76,7 +76,7 @@ public class StudentController {
     @GetMapping("/delete/{id}")
     public String deleteStudent(@PathVariable Long id) {
         service.deleteStudentById(id);
-        return "redirect:/students";
+        return "redirect:/";
     }
 
 //      Deleted Students :

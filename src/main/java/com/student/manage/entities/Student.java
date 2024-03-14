@@ -2,9 +2,11 @@ package com.student.manage.entities;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 
 @Entity
+@Getter
 
 
 @Table(name = "student_details")
@@ -21,7 +23,6 @@ public class Student {
 
     @Column(name = "email")
     private String email;
-
     @Column(name = "mobile")
     private int mobile;
     @Column(name = "address")
