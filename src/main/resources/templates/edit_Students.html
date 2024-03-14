@@ -40,7 +40,7 @@
         <div class=" col-lg-6 col-md-6 col-sm-6 container justify-content-center card ">
             <h1>Update Student</h1>
             <div class="card-body">
-                <form method="POST" th:action="@{//{id} (id=${student.id})}" th:object="${student}">
+                <form method="POST" th:action="@{/{id} (id=${student.id})}" th:object="${student}">
                     <div class="form-group">
                         <!--full name-->
                         <label>Student FullName </label>
